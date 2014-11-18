@@ -1,0 +1,26 @@
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<script type="text/javascript" src="javascript.js"></script>
+</head>
+<body onload="inicio()">
+<div id="superior">
+  <div id="display_energia">
+  </div>
+  <div id="display_pontos">
+  </div>
+</div>
+<div id="palco">
+  <div id="plano2">
+  </div>
+  <div id="plano1">
+  </div>
+<!-- tabindex é utilizado para que o div possa receber o foco e, assim, poder tratar eventos de teclado, como onkeydown -->
+  <div id="personagem" tabindex=1 onkeydown="saltar()">
+  </div>
+  <div id="obstaculo1">
+  </div>
+</div>
+
+</body>
+</html>

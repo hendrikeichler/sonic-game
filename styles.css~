@@ -1,0 +1,234 @@
+#superior {
+    width: 1064px;
+    display: table;
+    background-color: rgb(40,40,40);
+}
+
+#display_energia {
+    margin: 5 5 5 5;
+    width: 300px;
+    height: 35px;
+    float: left;
+    font-family: Courier;
+    font-size: 20pt;
+    background-color: rgb(240,240,240);
+    border-style: solid;
+    border-width: 2pt;
+    border-color: rgb(40,40,40);
+}
+
+#display_pontos {
+    margin: 5 5 5 5;
+    width: 300px;
+    height: 70px;
+    font-family: Courier;
+    font-size: 20pt;
+    background-color: rgb(240,240,240);
+    border-style: solid;
+    border-width: 2pt;
+    border-color: rgb(40,40,40);
+}
+
+#palco {
+    width: 1064px;
+    display: table;
+    background-color: rgb(220,220,255);
+}
+
+/* plano de fundo */
+#plano2 {
+    width: 100%;
+    height: 350px;
+    background-image: url(backgroundfull.png);
+    background-position: 0px 0px;
+    animation: anim_plano2 40s linear infinite;
+    -webkit-animation: anim_plano2 20s linear infinite;
+    -moz-animation: anim_plano2 20s linear infinite;
+}
+
+/* animação do plano de fundo */
+@keyframes anim_plano2 {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
+}
+
+@-webkit-keyframes anim_plano2 {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
+}
+
+@-moz-keyframes anim_plano2 {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
+}
+
+/* 1o plano */
+#plano1 {
+    width: 100%;
+    height: 200px;
+    background-color: rgb(20,255,220);
+}
+
+#personagem {
+    position: absolute;
+    left: 50px;
+    top: 290px;
+    width: 100;
+    height: 120px;
+    background-image: url(sonic.png);
+    background-position: 15px 960px;
+    outline: none;
+}
+
+/* classe para animação do personagem */
+.anima_personagem {
+    animation: anim_personagem 1000ms linear 1;
+    -webkit-animation: anim_personagem 1000ms linear 1;
+    -moz-animation: anim_personagem 1000ms linear 1;
+}
+
+/* animação do personagem */
+@keyframes anim_personagem {
+    0% {
+        top: 290px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    50% {
+        top: 200px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    100% {
+        top: 290px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+}
+
+@-webkit-keyframes anim_personagem {
+    0% {
+        top: 290px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    50% {
+        top: 200px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    100% {
+        top: 290px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+}
+
+@-moz-keyframes anim_personagem {
+    0% {
+        top: 290px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    50% {
+        top: 200px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    100% {
+        top: 290px;
+        background-position: 0px 830px;
+        width: 85px;
+    }
+}
+
+/* obstaculo */
+#obstaculo1 {
+    position: absolute;
+    left: 1080px;
+    top: 346px;
+    width: 80;
+    height: 50px;
+    background-color: white;
+}
+
+/* classe para animação do obstaculo */
+.anima_obstaculo1 {
+    animation: anim_obstaculo1 3000ms linear 1;
+    -webkit-animation: anim_obstaculo1 3000ms linear 1;
+    -moz-animation: anim_obstaculo1 3000ms linear 1;
+}
+
+/* animação do obstaculo */
+@keyframes anim_obstaculo1 {
+    0% {
+        background: white;
+        left: 1080px;
+    }
+
+    1% {
+        background: blue;
+        left: 980px;
+    }
+
+    100% {
+        background: green;
+        left: -80px;
+    }
+}
+
+@-webkit-keyframes anim_obstaculo1 {
+    0% {
+        background: white;
+        left: 1080px;
+    }
+
+    1% {
+        background: blue;
+        left: 980px;
+    }
+
+    100% {
+        background: green;
+        left: -80px;
+    }
+}
+
+@-moz-keyframes anim_obstaculo1 {
+    0% {
+        background: white;
+        left: 1080px;
+    }
+
+    1% {
+        background: blue;
+        left: 980px;
+    }
+
+    100% {
+        background: green;
+        left: -80px;
+    }
+}
+
