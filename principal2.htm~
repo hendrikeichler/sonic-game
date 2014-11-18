@@ -13,8 +13,6 @@
 <div id="palco">
   <div id="plano2">
   </div>
-  <div id="plano1">
-  </div>
 <!-- tabindex é utilizado para que o div possa receber o foco e, assim, poder tratar eventos de teclado, como onkeydown -->
   <div id="personagem" tabindex=1 onkeydown="saltar()">
   </div>

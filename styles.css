@@ -11,7 +11,7 @@
     float: left;
     font-family: Courier;
     font-size: 20pt;
-    background-color: rgb(240,240,240);
+    color: yellow;  
     border-style: solid;
     border-width: 2pt;
     border-color: rgb(40,40,40);
@@ -24,6 +24,19 @@
     font-family: Courier;
     font-size: 20pt;
     border-style: solid;
+    color: yellow;
+    border-width: 2pt;
+    border-color: rgb(40,40,40);
+}
+
+#display_tempo {
+    margin: 5 5 5 5;
+    width: 300px;
+    height: 70px;
+    font-family: Courier;
+    font-size: 20pt;
+    border-style: solid;
+    color: yellow;
     border-width: 2pt;
     border-color: rgb(40,40,40);
 }
