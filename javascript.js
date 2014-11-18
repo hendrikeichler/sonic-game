@@ -8,6 +8,7 @@ var saltou; // indica se o personagem saltou durante a passagem de um obstáculo
 var conta_obstaculos; // número de obstáculos que já passaram em uma fase
 var vel_fundo; // velocidade do fundo (em pixels/s)
 var vel_1o_plano; // velocidade do 1o plano (em pixels/s)
+var tempo;
 
 var ts_inicio_anim_obs; // timestamp do início da animação do obstáculo
 
@@ -23,11 +24,15 @@ function inicio() {
     nobstaculos = 15;
     vel_fundo = 50;
     vel_1o_plano = 400;
-
+    tempo = 0;
+    altera_timelapse();
+    setInterval(altera_timelapse, 1000);  
     limpa_displays();
     seta_listeners();
     inicia_fase();
     inicia_anim_obstaculo();
+    
+
 }
 
 // função para limpeza dos displays de energia e pontos
@@ -320,4 +325,27 @@ function finaliza_jogo() {
 
     // após o alert, inicia um novo jogo
     inicio();
+}
+
+function altera_timelapse(){
+    var el = window.document.getElementById("display_tempo");
+    if (!el) return;
+    el.innerHTML = '<span>TIME: ' + lpad(tempo) + '</span>';
+    tempo += 1;    
+};
+
+function lpad(time){
+    var t = parseInt(time);
+    if (t < 60){
+      if(t < 10){
+        return '00:0'+t;
+      }
+        return '00:'+t;
+    }else{
+      var minuts = t/60;
+      var seconds = t -60;
+      if(minuts.length < 2) minuts = "0"+minuts;
+      if(seconds.length < 2) seconds = "0"+seconds;
+      return minuts+":"+seconds;
+    }
 }
