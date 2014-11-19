@@ -4,7 +4,7 @@
 <script type="text/javascript" src="javascript.js"></script>
 </head>
 <body onload="inicio()" tabindex=1 onkeydown="saltar()" style=" background-color: black; ">
-<div id="palco" style=" margin: auto;">
+<div id="palco" style=" margin: auto; ">
 	<div class="player-status" style="margin-top: 5px">
 		<div>
 			<span class="font-street-fighter player-number">1P</span>

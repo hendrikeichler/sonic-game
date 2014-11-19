@@ -211,7 +211,7 @@
 }
 
 @-moz-keyframes anim_personagem {
-    0% {
+   0% {
         top: 290px;
         background-image: url(ryu.png);
         background-position: 0px 830px;

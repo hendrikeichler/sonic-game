@@ -273,7 +273,7 @@ function verifica_salto() {
 
     // verifica se a distância entre o personagem e o obstáculo permite um salto OK!
     // (Obs: valores ajustados empiricamente!)
-    if (distancia > 320 && distancia <= 420) {
+    if (distancia > 90 && distancia <= 280) {
         console.log("salto OK!");
         return true;
     }
