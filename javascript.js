@@ -8,12 +8,11 @@ var saltou; // indica se o personagem saltou durante a passagem de um obstáculo
 var conta_obstaculos; // número de obstáculos que já passaram em uma fase
 var vel_fundo; // velocidade do fundo (em pixels/s)
 var vel_1o_plano; // velocidade do 1o plano (em pixels/s)
-var tempo;
 
 var ts_inicio_anim_obs; // timestamp do início da animação do obstáculo
 
 var WIDTH_PLANO_DE_FUNDO = 3180; // número de pixels da largura da imagem de fundo
-var WIDTH_JANELA = 1000; // número de pixels da largura da janela
+var WIDTH_JANELA = 1064; // número de pixels da largura da janela
 
 // função chamada no início (ou reinício) do jogo
 function inicio() {
@@ -23,10 +22,7 @@ function inicio() {
     fase = 1;
     nobstaculos = 15;
     vel_fundo = 50;
-    vel_1o_plano = 400;
-    tempo = 0;
-    altera_timelapse();
-    setInterval(altera_timelapse, 1000);  
+    vel_1o_plano = 400;    
     limpa_displays();
     seta_listeners();
     inicia_fase();
@@ -47,19 +43,19 @@ function limpa_displays() {
 // função para atualizar displays de energia
 function atualiza_display_energia() {
     console.log("atualiza_display_energia()");
-    var el = window.document.getElementById("display_energia");
+    var el = window.document.getElementById("lifeBarStatus");
     if (!el)
         return;
-    el.innerHTML = '<span>RINGS: ' + energia + '</span>';
+    el.style.width = energia+'%';
 }
 
 // função para atualizar displays de pontos
 function atualiza_display_pontos() {
     console.log("atualiza_display_pontos()");
-    var el = window.document.getElementById("display_pontos");
+    var el = window.document.getElementById("points");
     if (!el)
         return;
-    el.innerHTML = '<span>SCORE: ' + pontos + '</span>';
+    el.innerHTML = pontos;
 }
 
 // função para associar funções de tratamento para os momentos de término de animação
@@ -82,6 +78,9 @@ function seta_listeners() {
 function inicia_fase() {
     console.log("inicia_fase(" + fase + ")");
 
+	var el = window.document.getElementById('level');
+	el.innerHTML = fase;
+	
     // inicialização de flags de controle
     saltando = false;
     salto_ok = false;
@@ -274,7 +273,7 @@ function verifica_salto() {
 
     // verifica se a distância entre o personagem e o obstáculo permite um salto OK!
     // (Obs: valores ajustados empiricamente!)
-    if (distancia > 180 && distancia <= 300) {
+    if (distancia > 90 && distancia <= 280) {
         console.log("salto OK!");
         return true;
     }
@@ -307,7 +306,7 @@ function fim_do_salto() {
 
     // remove classe de animação do personagem
     var pers_el = window.document.getElementById("personagem");
-    pers_el.className = "";
+    pers_el.className = "caminha_personagem";
 
 }
 
@@ -325,27 +324,4 @@ function finaliza_jogo() {
 
     // após o alert, inicia um novo jogo
     inicio();
-}
-
-function altera_timelapse(){
-    var el = window.document.getElementById("display_tempo");
-    if (!el) return;
-    el.innerHTML = '<span>TIME: ' + lpad(tempo) + '</span>';
-    tempo += 1;    
-};
-
-function lpad(time){
-    var t = parseInt(time);
-    if (t < 60){
-      if(t < 10){
-        return '00:0'+t;
-      }
-        return '00:'+t;
-    }else{
-      var minuts = t/60;
-      var seconds = t -60;
-      if(minuts.length < 2) minuts = "0"+minuts;
-      if(seconds.length < 2) seconds = "0"+seconds;
-      return minuts+":"+seconds;
-    }
 }

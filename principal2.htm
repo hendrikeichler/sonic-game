@@ -3,20 +3,25 @@
 <link rel="stylesheet" href="styles.css">
 <script type="text/javascript" src="javascript.js"></script>
 </head>
-<body onload="inicio()">
-<div id="superior">
-  <div id="display_energia">
-  </div>
-  <div id="display_pontos">
-  </div>
-  <div id="display_tempo">
-  </div>
-</div>
+<body onload="inicio()" tabindex=1 onkeydown="saltar()">
 <div id="palco">
+	<div class="player-status" style="margin-top: 5px">
+		<div>
+			<span class="font-street-fighter player-number">1P</span>
+			<span id="points" class="font-street-fighter player-points">0</span>
+		</div>
+		<div class="life-bar">
+			<div id="lifeBarStatus"></div>
+		</div>
+		<span class="font-street-fighter player-name">RYU</span>
+	</div>
+	<div class="phase">
+		<span id="level" class="font-street-fighter">1</span>
+	</div> 
   <div id="plano2">
   </div>
 <!-- tabindex é utilizado para que o div possa receber o foco e, assim, poder tratar eventos de teclado, como onkeydown -->
-  <div id="personagem" tabindex=1 onkeydown="saltar()">
+  <div id="personagem" class="caminha_personagem">
   </div>
   <div id="obstaculo1">
   </div>
