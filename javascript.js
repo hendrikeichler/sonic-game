@@ -78,9 +78,8 @@ function seta_listeners() {
 function inicia_fase() {
     console.log("inicia_fase(" + fase + ")");
 
-	var el = window.document.getElementById('level');
-	el.innerHTML = fase;
-	
+	atualizarLevelJogo(fase);
+
     // inicialização de flags de controle
     saltando = false;
     salto_ok = false;
@@ -320,8 +319,14 @@ function acrescenta_pontos(incremento) {
 function finaliza_jogo() {
     console.log("finaliza_jogo()");
     atualiza_display_energia();
+    atualizarLevelJogo('KO');
     alert("GAME OVER");
 
     // após o alert, inicia um novo jogo
     inicio();
+}
+
+function atualizarLevelJogo(level){
+    var el = window.document.getElementById('level');
+    el.innerHTML = level;
 }
