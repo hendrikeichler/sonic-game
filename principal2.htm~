@@ -19,7 +19,7 @@
 		<span id="level" class="font-street-fighter">1</span>
 	</div> 
 	<div class="mural">
-		<span id="round" class="font-street-fighter"></span>
+		<span class="font-street-fighter"></span>
 	</div> 
   <div id="plano2">
   </div>

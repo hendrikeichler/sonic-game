@@ -520,13 +520,3 @@
     color: red;
     text-shadow: 1px 2px 0 #fff, -2px -1px 0 #fff, 2px -1px 0 #fff, -2px 1px 0 #fff, 2px 0 0 #fff;
 }
-.mural {
-    z-index: 9999;
-    width: 140px;
-    height: 114px;
-    margin: auto;
-    opacity: 0.8;
-    position: absolute;
-    top: 35%;
-    left: calc(50% - 70px);
-}

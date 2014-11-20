@@ -9,7 +9,7 @@ var conta_obstaculos; // número de obstáculos que já passaram em uma fase
 var vel_fundo; // velocidade do fundo (em pixels/s)
 var vel_1o_plano; // velocidade do 1o plano (em pixels/s)
 var hadouken = new Audio('sounds/hadouken.mp3');
-var lifeLost = new Audio('sounds/lifelost.wav');
+var lifeLost = new Audio('sounds/lifelost.mp3');
 var changeLevel = new Audio('sounds/changelevel.mp3');
 var coin = new Audio('sounds/coin.mp3');
 var fight = new Audio('sounds/fight.mp3');
