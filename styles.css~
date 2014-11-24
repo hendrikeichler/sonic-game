@@ -1,0 +1,522 @@
+#superior {
+    width: 1064px;
+    display: table;
+    background-color: rgb(40, 40, 40);
+}
+
+#display_energia {
+    margin: 5 5 5 5;
+    width: 300px;
+    height: 35px;
+    float: left;
+    font-family: Courier;
+    font-size: 20pt;
+    color: yellow;
+    border-style:solid;
+    border-width: 2pt;
+    border-color: rgb(40, 40, 40);
+}
+
+#display_pontos {
+    margin: 5 5 5 5;
+    width: 300px;
+    height: 70px;
+    font-family: Courier;
+    font-size: 20pt;
+    border-style:solid;
+    color: yellow;
+    border-width: 2pt;
+    border-color: rgb(40, 40, 40);
+}
+
+#display_tempo {
+    margin: 5 5 5 5;
+    width: 300px;
+    height: 30px;
+    font-family: Courier;
+    font-size: 20pt;
+    border-style:solid;
+    color: yellow;
+    border-width: 2pt;
+    border-color: rgb(40, 40, 40);
+}
+
+#palco {
+    width: 1064px;
+    display: table;
+    background-color: rgb(220, 220, 255);
+}
+
+/* plano de fundo */
+#plano2 {
+    width: 100% ;
+    height: 465px;
+    background-image: url(backgroundfull.png);
+    background-position: 0px 0px;
+    animation: anim_plano2 40s linear infinite;
+	-webkit-animation: anim_plano2 20s linear infinite;
+	-moz-animation: anim_plano2 20s linear infinite;
+}
+
+/* animação do plano de fundo */
+@keyframes anim_plano2 {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
+}
+
+@-webkit-keyframes anim_plano2 {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
+}
+
+@-moz-keyframes anim_plano2 {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100% 0;
+    }
+}
+
+/* 1o plano */
+#plano1 {
+    width: 100%;
+    height: 200px;
+    background-color: rgb(20, 255, 220);
+}
+
+#personagem {
+    position: absolute;
+    left: 220px;
+    top: 290px;
+    width: 73px;
+    height: 135px;
+    background-image: url(ryu.png);
+    background-position: -74px 824px;
+    background-size: 600px auto;
+    outline: none;
+}
+
+/* classe para animação do personagem */
+.anima_personagem {
+    animation: anim_personagem 1000ms linear 1; 
+	-webkit-animation: anim_personagem 1000ms linear 1;
+	-moz-animation: anim_personagem 1000ms linear 1;
+}
+
+.caminha_personagem {
+    animation: caminh_personagem 500ms linear infinite; 
+	-webkit-animation: caminh_personagem 500ms linear infinite;
+	-moz-animation: caminh_personagem 500ms linear infinite;
+}
+
+/* animação do personagem */
+@keyframes anim_personagem {
+    0% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    1% {
+        top: 220px;
+        background-image: url(ryu.png);
+        background-position: 319px 584px;
+        height: 91px;
+        width: 135px;
+    }
+
+    50% {
+        top: 220px;
+        background-image: url(ryu.png);
+        background-position: 319px 584px;
+        height: 91px;
+        width: 135px;
+    }
+    51% {
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+
+    100% {
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+}
+
+@-webkit-keyframes anim_personagem {
+    0% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    1% {
+        top: 220px;
+        background-image: url(ryu.png);
+        background-position: 319px 584px;
+        height: 91px;
+        width: 135px;
+    }
+
+    50% {
+        top: 220px;
+        background-image: url(ryu.png);
+        background-position: 319px 584px;
+        height: 91px;
+        width: 135px;
+    }
+    51% {
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+
+    100% {
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+}
+
+@-moz-keyframes anim_personagem {
+    0% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: 0px 830px;
+        width: 85px;
+    }
+
+    1% {
+        top: 220px;
+        background-image: url(ryu.png);
+        background-position: 319px 584px;
+        height: 91px;
+        width: 135px;
+    }
+
+    50% {
+        top: 220px;
+        background-image: url(ryu.png);
+        background-position: 319px 584px;
+        height: 91px;
+        width: 135px;
+    }
+    51% {
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+
+    100% {
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+}
+
+@keyframes caminh_personagem {
+    0% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: 0px 830px;
+        width: 75px;
+    }
+
+    1% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: -150px 824px;
+        width: 75px;
+    }
+
+    50% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: -150px 824px;
+    }
+    51% {
+        position: absolute;
+        left: 220px;
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+
+    100% {
+        position: absolute;
+        left: 220px;
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+}
+
+@-webkit-keyframes caminh_personagem {
+    0% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: 0px 830px;
+        width: 75px;
+    }
+
+    1% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: -150px 824px;
+        width: 75px;
+    }
+
+    50% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: -150px 824px;
+    }
+    51% {
+        position: absolute;
+        left: 220px;
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+
+    100% {
+        position: absolute;
+        left: 220px;
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+}
+
+@-moz-keyframes caminh_personagem {
+    0% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: 0px 830px;
+        width: 75px;
+    }
+
+    1% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: -150px 824px;
+        width: 75px;
+    }
+
+    50% {
+        top: 290px;
+        background-image: url(ryu.png);
+        background-position: -150px 824px;
+    }
+    51% {
+        position: absolute;
+        left: 220px;
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+
+    100% {
+        position: absolute;
+        left: 220px;
+        top: 290px;
+        width: 73px;
+        height: 135px;
+        background-image: url(ryu.png);
+        background-position: -74px 824px;
+        background-size: 600px auto;
+        outline: none;
+    }
+}
+
+/* obstaculo */
+#obstaculo1 {
+    background-image: url("hadouken.png");
+    background-repeat: no-repeat;
+    background-size: 53px auto;
+    height: 53px;
+    left: 1000px;
+    position: absolute;
+    top: 340px;
+    width: 58px;-moz-transform:scaleX(-1); 
+	-o-transform:scaleX(-1); 
+	-webkit-transform:scaleX(-1);
+    transform:scaleX(-1);
+    filter: FlipH;-ms-filter: "FlipH";
+}
+
+/* classe para animação do obstaculo */
+.anima_obstaculo1 {
+    animation: anim_obstaculo1 3000ms linear 1; 
+	-webkit-animation: anim_obstaculo1 3000ms linear 1;
+	-moz-animation: anim_obstaculo1 3000ms linear 1;
+}
+
+/* animação do obstaculo */
+@keyframes anim_obstaculo1 {
+    0% {
+        display: none;
+        left: 1000px;
+    }
+
+    1% {
+        display: block;
+        left: 980px;
+    }
+
+    100% {
+        display: none;
+        left: -80px;
+    }
+}
+
+@-webkit-keyframes anim_obstaculo1 {
+    0% {
+        display: none;
+        left: 1084px;
+    }
+
+    1% {
+        display: block;
+        left: 980px;
+    }
+
+    100% {
+        display: none;
+        left: -80px;
+    }
+}
+
+@-moz-keyframes anim_obstaculo1 {
+    0% {
+        display: none;
+        left: 1084px;
+    }
+
+    1% {
+        display: block;
+        left: 980px;
+    }
+
+    100% {
+        display: none;
+        left: -80px;
+    }
+}
+
+@font-face {
+   font-family: "streetFighter";
+   src: url("fonts/art_of_fighting_2.ttf");
+}
+.player-status {
+   float: left;
+   margin-left: 20px;
+   width: 45%;
+   margin-top: 15px;
+}
+.life-bar {
+   background-color: red;
+   border: 2pt solid white;
+   box-sizing: border-box;
+   height: 20px;
+   width: 100%;
+   margin-top: 5px;
+   margin-bottom: 2px;
+}
+.life-bar div {
+   background-color: yellow;
+   height: 100%;
+   max-width: 100%;
+   min-width: 0;
+}
+.font-street-fighter {
+   color: white;
+   font-family: streetFighter;
+   color: yellow;
+   text-shadow: 2px 2px 1px blue;
+}
+.player-number {
+}
+.player-points {
+   float: right;
+   margin-right: 50px;
+}
+.player-name {
+}
+.phase {
+    background-color: black;
+    border: 2pt solid white;
+    border-radius: 50px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 15px;
+    opacity: 0.7;
+    padding: 23px;
+    text-align: center;
+    width: 30px;
+}
+.phase span {
+    font-size: 17px;
+    color: red;
+    text-shadow: 1px 2px 0 #fff, -2px -1px 0 #fff, 2px -1px 0 #fff, -2px 1px 0 #fff, 2px 0 0 #fff;
+}
