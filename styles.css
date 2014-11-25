@@ -54,8 +54,8 @@
     background-image: url(backgroundfull.png);
     background-position: 0px 0px;
     animation: anim_plano2 40s linear infinite;
-	-webkit-animation: anim_plano2 20s linear infinite;
-	-moz-animation: anim_plano2 20s linear infinite;
+    -webkit-animation: anim_plano2 20s linear infinite;
+    -moz-animation: anim_plano2 20s linear infinite;
 }
 
 /* animação do plano de fundo */
@@ -108,17 +108,39 @@
     outline: none;
 }
 
+#personagemKen {
+    -moz-transform: scaleX(-1);
+    -o-transform:scaleX(-1); 
+    -webkit-transform:scaleX(-1);
+    transform:scaleX(-1);
+    background-image: url("ken.png");
+    background-position: -10px 1255px;
+    background-size: 770px auto;
+    height: 126px;
+    left: 1043px;
+    outline: medium none;
+    position: absolute;
+    top: 300px;
+    width: 80px;
+}
+
 /* classe para animação do personagem */
 .anima_personagem {
     animation: anim_personagem 1000ms linear 1; 
-	-webkit-animation: anim_personagem 1000ms linear 1;
-	-moz-animation: anim_personagem 1000ms linear 1;
+    -webkit-animation: anim_personagem 1000ms linear 1;
+    -moz-animation: anim_personagem 1000ms linear 1;
 }
 
 .caminha_personagem {
     animation: caminh_personagem 500ms linear infinite; 
-	-webkit-animation: caminh_personagem 500ms linear infinite;
-	-moz-animation: caminh_personagem 500ms linear infinite;
+    -webkit-animation: caminh_personagem 500ms linear infinite;
+    -moz-animation: caminh_personagem 500ms linear infinite;
+}
+
+.hadouken_ken {
+    animation: hadouken_ken 1500ms linear infinite; 
+    -webkit-animation: hadouken_ken 1500ms linear infinite;
+    -moz-animation: hadouken_ken 1500ms linear infinite;
 }
 
 /* animação do personagem */
@@ -251,6 +273,153 @@
         background-position: -74px 824px;
         background-size: 600px auto;
         outline: none;
+    }
+}
+
+@keyframes hadouken_ken {
+   0% {
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
+    }
+
+    1% {        
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;   
+    }
+
+    50% {        
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+    }
+    51% {
+        background-image: url(ryu.png);
+        background-position: -231px 1255px;
+        width: 110px;
+    }
+
+    75%{
+        background-image: url(ryu.png);
+        background-position: -231px 1255px;
+        width: 110px;   
+    }
+    76%{
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+        width: 80px;
+    }
+    95%{
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+    }
+    96%{
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
+    }
+    
+    100% {
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
+    }
+}
+
+@-webkit-keyframes hadouken_ken {
+    0% {
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
+    }
+
+    1% {        
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;   
+    }
+
+    50% {        
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+    }
+    51% {
+        background-image: url(ryu.png);
+        background-position: -231px 1255px;
+        width: 110px;
+    }
+
+    75%{
+        background-image: url(ryu.png);
+        background-position: -231px 1255px;
+        width: 110px;   
+    }
+    76%{
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+        width: 80px;
+    }
+    95%{
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+    }
+    96%{
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
+    }
+    
+    100% {
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
+    }
+}
+
+@-moz-keyframes hadouken_ken {
+    0% {
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
+    }
+
+    1% {        
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;   
+    }
+
+    50% {        
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+    }
+    51% {
+        background-image: url(ryu.png);
+        background-position: -231px 1255px;
+        width: 110px;
+    }
+
+    75%{
+        background-image: url(ryu.png);
+        background-position: -231px 1255px;
+        width: 110px;   
+    }
+    76%{
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+        width: 80px;
+    }
+    95%{
+        background-image: url(ryu.png);
+        background-position: -127px 1257px;
+    }
+    96%{
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
+    }
+    
+    100% {
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+        background-size: 770px auto;
     }
 }
 
@@ -398,9 +567,10 @@
     left: 1155px;
     position: absolute;
     top: 340px;
-    width: 58px;-moz-transform:scaleX(-1); 
-	-o-transform:scaleX(-1); 
-	-webkit-transform:scaleX(-1);
+    width: 58px;
+    -moz-transform:scaleX(-1); 
+    -o-transform:scaleX(-1); 
+    -webkit-transform:scaleX(-1);
     transform:scaleX(-1);
     filter: FlipH;-ms-filter: "FlipH";
 }
@@ -408,8 +578,8 @@
 /* classe para animação do obstaculo */
 .anima_obstaculo1 {
     animation: anim_obstaculo1 3000ms linear 1; 
-	-webkit-animation: anim_obstaculo1 3000ms linear 1;
-	-moz-animation: anim_obstaculo1 3000ms linear 1;
+    -webkit-animation: anim_obstaculo1 3000ms linear 1;
+    -moz-animation: anim_obstaculo1 3000ms linear 1;
 }
 
 /* animação do obstaculo */
@@ -418,7 +588,7 @@
         display: none;
         left: 1155px;
     }
-	1% {
+    1% {
         display: none;
         left: 1155px;
     }
@@ -439,7 +609,7 @@
         display: none;
         left: 1155px;
     }
-	1% {
+    1% {
         display: none;
         left: 1155px;
     }
@@ -460,7 +630,7 @@
         display: none;
         left: 1155px;
     }
-	1% {
+    1% {
         display: none;
         left: 1155px;
     }
@@ -534,11 +704,15 @@
 }
 .mural {
     z-index: 9999;
-    width: 140px;
-    height: 114px;
     margin: auto;
-    opacity: 0.8;
     position: absolute;
-    top: 35%;
-    left: calc(50% - 70px);
+    top: 30%;
+    left: 40%;
+}
+
+#round {
+    color: red;
+    font-size: 30pt;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
 }

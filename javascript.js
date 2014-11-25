@@ -337,22 +337,27 @@ function finaliza_jogo() {
     inicio();
 }
 
-function atualizarLevelJogo(level){
+function atualizarLevelJogo(lvl){
     var el = window.document.getElementById('level');
-    el.innerHTML = level;
+    el.innerHTML = lvl;
     
+    if(typeof lvl != 'number' && lvl.indexOf('KO') != -1){
+        return;
+    }
     
     var elSpan = window.document.getElementById('round');
-    elSpan.innerHTML = 'Round '+level;
+    elSpan.innerHTML = 'Round '+lvl;
+    
+    if(lvl == 1){
+        setTimeout(function(){
+            var elSpan = window.document.getElementById('round');
+            elSpan.innerHTML = 'FIGHT!!!';
+            fight.play();
+        }, 2000);
+    }
     
     setTimeout(function(){
-      var elSpan = window.document.getElementById('round');
-      elSpan.innerHTML = 'FIGHT!!';
-      fight.play();
-    }, 2000);
-    
-    setTimeout(function(){
-      var elSpan = window.document.getElementById('round');
-      elSpan.innerHTML = '';
-    }, 2750);
+        var elSpan = window.document.getElementById('round');
+        elSpan.innerHTML = '';
+    }, 3000);
 }
