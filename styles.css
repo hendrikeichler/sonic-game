@@ -716,3 +716,28 @@
     font-weight: bold;
     text-shadow: 2px 2px 2px black;
 }
+.end-game {
+    display: none;
+    left: 0;
+    margin-left: 10%;
+    position: absolute;
+    top: 0;
+    z-index: 999999;
+}
+.end-game img{
+    width: 100%;
+}
+.end-game span {
+    position: absolute;
+    background-color: black;
+}
+.count-small {
+    font-size: 38px;
+    left: 17px;
+    top: 6px;
+}
+.count-big {
+    font-size: 340px;
+    left: 681px;
+    top: 92px;
+}

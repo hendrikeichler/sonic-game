@@ -52,7 +52,7 @@ function inicio() {
 function limpa_displays() {
     console.log("limpa_displays()");
     pontos = 0;
-    energia = 100;
+    energia = 10;
     atualiza_display_energia();
     atualiza_display_pontos();
 }
@@ -333,8 +333,32 @@ function finaliza_jogo() {
       console.log('Waiting...');
     },5000);
 
+    var el = window.document.getElementById('obstaculo1');
+    var elClone = el.cloneNode(true);
+
+    el.parentNode.replaceChild(elClone, el);
+
+    var divEndGame = window.document.getElementById('end-game');
+    divEndGame.style.display = 'block';
+    var count = 5;
+    var countTempo = 1000;
+    var intervalo = setInterval(function(){
+            if (count < 0) {
+                clearInterval(intervalo);
+                return;
+            };
+            var smallCount = window.document.getElementById('count-small');
+            smallCount.innerHTML = "CONTINUE? " + count;
+
+            var bigCount = window.document.getElementById('count-big');
+            bigCount.innerHTML = count;
+
+            count = count - 1;
+        },1000);
+        countTempo += 1000;
+
     // após o alert, inicia um novo jogo
-    inicio();
+    //inicio();
 }
 
 function atualizarLevelJogo(lvl){
