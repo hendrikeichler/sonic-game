@@ -8,6 +8,7 @@ var saltou; // indica se o personagem saltou durante a passagem de um obstáculo
 var conta_obstaculos; // número de obstáculos que já passaram em uma fase
 var vel_fundo; // velocidade do fundo (em pixels/s)
 var vel_1o_plano; // velocidade do 1o plano (em pixels/s)
+var animObstaculo;
 var hadouken = new Audio('sounds/hadouken.mp3');
 var lifeLost = new Audio('sounds/lifelost.wav');
 var changeLevel = new Audio('sounds/changelevel.mp3');
@@ -39,9 +40,12 @@ function inicio() {
     limpa_displays();
     setTimeout(function(){
       backgroundSong.play();
+      var ken = window.document.getElementById("personagemKen");
+      ken.className = 'hadouken_ken';
     },2500); 
     seta_listeners();
     inicia_fase();
+
     setTimeout(function(){
       inicia_anim_obstaculo();
     },2850); 
@@ -89,6 +93,10 @@ function seta_listeners() {
     var obstaculo_el = window.document.getElementById("obstaculo1");
     obstaculo_el.addEventListener("webkitAnimationEnd", final_anim_obstaculo);
     obstaculo_el.addEventListener("animationend", final_anim_obstaculo);
+    
+    var ken = window.document.getElementById("personagemKen");
+    ken.addEventListener("webkitAnimationEnd", inicia_anim_obstaculo, false);
+    ken.addEventListener("animationend", inicia_anim_obstaculo, false);
 }
 
 // função para iniciar uma nova fase
@@ -143,7 +151,6 @@ function calcula_tempos() {
 // função chamada para iniciar a animação do obstáculo
 function inicia_anim_obstaculo() {
     hadouken.play();
-    
     var obs_el = window.document.getElementById("obstaculo1");
     // associação da classe anima_obstaculo1 vai provocar o início da animação
     obs_el.className = "anima_obstaculo1";
@@ -178,7 +185,7 @@ function final_anim_obstaculo() {
     verifica_mudanca_de_fase();
 
     // seta um tempo randômico entre (0,1s e 1,1s) para reiniciar animação do obstáculo
-    window.setTimeout(inicia_anim_obstaculo, 100 + Math.floor(Math.random() * 1000));
+    animObstaculo = window.setTimeout(inicia_anim_obstaculo, 100 + Math.floor(Math.random() * 1000));
 }
 
 // função chamada quando for identificada colisão 
@@ -324,8 +331,10 @@ function finaliza_jogo() {
     console.log("finaliza_jogo()");
     atualiza_display_energia();
     atualizarLevelJogo('KO');
+    backgroundSong.pause();
     death.play();
     you.play();
+    clearTimeout(animObstaculo);
     setTimeout(function(){
       lose.play();
     },1000);
@@ -338,8 +347,8 @@ function finaliza_jogo() {
 
     el.parentNode.replaceChild(elClone, el);
 
-    var divEndGame = window.document.getElementById('end-game');
-    divEndGame.style.display = 'block';
+    //var divEndGame = window.document.getElementById('end-game');
+    //divEndGame.style.display = 'block';
     var count = 5;
     var countTempo = 1000;
     var intervalo = setInterval(function(){
@@ -347,11 +356,11 @@ function finaliza_jogo() {
                 clearInterval(intervalo);
                 return;
             };
-            var smallCount = window.document.getElementById('count-small');
-            smallCount.innerHTML = "CONTINUE? " + count;
+            //var smallCount = window.document.getElementById('count-small');
+            //smallCount.innerHTML = "CONTINUE? " + count;
 
-            var bigCount = window.document.getElementById('count-big');
-            bigCount.innerHTML = count;
+            //var bigCount = window.document.getElementById('count-big');
+            //bigCount.innerHTML = count;
 
             count = count - 1;
         },1000);

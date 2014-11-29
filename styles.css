@@ -138,9 +138,9 @@
 }
 
 .hadouken_ken {
-    animation: hadouken_ken 1500ms linear infinite; 
-    -webkit-animation: hadouken_ken 1500ms linear infinite;
-    -moz-animation: hadouken_ken 1500ms linear infinite;
+    animation: hadouken_ken 3000ms linear infinite; 
+    -webkit-animation: hadouken_ken 3000ms linear infinite;
+    -moz-animation: hadouken_ken 3000ms linear infinite;
 }
 
 /* animação do personagem */
@@ -284,42 +284,34 @@
     }
 
     1% {        
-        background-image: url(ryu.png);
         background-position: -127px 1257px;   
     }
 
     50% {        
-        background-image: url(ryu.png);
         background-position: -127px 1257px;
     }
     51% {
-        background-image: url(ryu.png);
         background-position: -231px 1255px;
         width: 110px;
     }
 
     75%{
-        background-image: url(ryu.png);
         background-position: -231px 1255px;
         width: 110px;   
     }
     76%{
-        background-image: url(ryu.png);
         background-position: -127px 1257px;
         width: 80px;
     }
     95%{
-        background-image: url(ryu.png);
         background-position: -127px 1257px;
     }
-    96%{
-        background-image: url("ken.png");
+    96%{       
         background-position: -10px 1255px;
         background-size: 770px auto;
     }
     
     100% {
-        background-image: url("ken.png");
         background-position: -10px 1255px;
         background-size: 770px auto;
     }
@@ -329,48 +321,60 @@
     0% {
         background-image: url("ken.png");
         background-position: -10px 1255px;
-        background-size: 770px auto;
     }
 
-    1% {        
-        background-image: url(ryu.png);
-        background-position: -127px 1257px;   
-    }
-
-    50% {        
-        background-image: url(ryu.png);
-        background-position: -127px 1257px;
-    }
-    51% {
-        background-image: url(ryu.png);
-        background-position: -231px 1255px;
-        width: 110px;
-    }
-
-    75%{
-        background-image: url(ryu.png);
-        background-position: -231px 1255px;
-        width: 110px;   
-    }
-    76%{
-        background-image: url(ryu.png);
-        background-position: -127px 1257px;
-        width: 80px;
-    }
-    95%{
-        background-image: url(ryu.png);
-        background-position: -127px 1257px;
-    }
-    96%{
+    22% {        
         background-image: url("ken.png");
         background-position: -10px 1255px;
-        background-size: 770px auto;
+    }    
+    
+    23% {        
+        background-image: url("ken.png");  
+        background-position: -127px 1257px;
+    }
+
+    45% {
+        background-image: url("ken.png");               
+        background-position: -127px 1257px;
+    }
+
+    46% {
+        background-image: url("ken.png");
+        background-position: -231px 1255px;
+        width: 100px;
+        left: 1020px;
+    }
+    68% {
+        background-image: url("ken.png");
+        background-position: -231px 1255px;
+        width: 100px;
+        left: 1020px;
+    }
+
+    69% {
+        background-image: url("ken.png");
+        background-position: -127px 1257px;
+        width: 80px;
+        left: 1043px;
+    }
+    91% {
+        background-image: url("ken.png");
+        background-position: -127px 1257px;
+        width: 80px;
+        left: 1043px;
+    }
+    92% {
+        background-image: url("ken.png");
+        background-position: -10px 1255px;
+    }
+    96%{
+       background-image: url("ken.png");
+       background-position: -10px 1255px;
     }
     
     100% {
         background-image: url("ken.png");
         background-position: -10px 1255px;
-        background-size: 770px auto;
     }
 }
 
@@ -563,10 +567,11 @@
     background-image: url("hadouken.png");
     background-repeat: no-repeat;
     background-size: 53px auto;
+    visibility: hidden;
     height: 53px;
-    left: 1155px;
+    left: 970px;
     position: absolute;
-    top: 340px;
+    top: 310px;
     width: 58px;
     -moz-transform:scaleX(-1); 
     -o-transform:scaleX(-1); 
@@ -585,64 +590,73 @@
 /* animação do obstaculo */
 @keyframes anim_obstaculo1 {
     0% {
-        display: none;
-        left: 1155px;
+        visibility: hidden;
+        left: 970px;
     }
     1% {
-        display: none;
-        left: 1155px;
+        visibility: hidden;
+        left: 970px;
     }
 
     2% {
-        display: block;
-        left: 1150px;
+        visibility: visible;
+        left: 970px;
     }
-
+    99% {
+        visibility: visible;
+    }
+    
     100% {
-        display: none;
-        left: 130px;
+        visibility: hidden;
+        left: 140px;
     }
 }
 
 @-webkit-keyframes anim_obstaculo1 {
     0% {
-        display: none;
-        left: 1155px;
+        visibility: hidden;
+        left: 970px;
     }
     1% {
-        display: none;
-        left: 1155px;
+        visibility: hidden;
+        left: 970px;
     }
 
     2% {
-        display: block;
-        left: 1150px;
+        visibility: visible;
+        left: 970px;
     }
-
+    99% {
+        visibility: visible;
+    }
+    
     100% {
-        display: none;
-        left: 130px;
+        visibility: hidden;
+        left: 140px;
     }
 }
 
 @-moz-keyframes anim_obstaculo1 {
     0% {
-        display: none;
-        left: 1155px;
+        visibility: hidden;
+        left: 970px;
     }
     1% {
-        display: none;
-        left: 1155px;
+        visibility: hidden;
+        left: 970px;
     }
 
     2% {
-        display: block;
-        left: 1150px;
+        visibility: visible;
+        left: 970px;
     }
-
+    99% {
+        visibility: visible;
+    }
+    
     100% {
-        display: none;
-        left: 130px;
+        visibility: hidden;
+        left: 140px;
     }
 }
 

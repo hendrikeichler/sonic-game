@@ -8,8 +8,9 @@ var saltou; // indica se o personagem saltou durante a passagem de um obstáculo
 var conta_obstaculos; // número de obstáculos que já passaram em uma fase
 var vel_fundo; // velocidade do fundo (em pixels/s)
 var vel_1o_plano; // velocidade do 1o plano (em pixels/s)
+var animObstaculo;
 var hadouken = new Audio('sounds/hadouken.mp3');
-var lifeLost = new Audio('sounds/lifelost.mp3');
+var lifeLost = new Audio('sounds/lifelost.wav');
 var changeLevel = new Audio('sounds/changelevel.mp3');
 var coin = new Audio('sounds/coin.mp3');
 var fight = new Audio('sounds/fight.mp3');
@@ -42,6 +43,7 @@ function inicio() {
     },2500); 
     seta_listeners();
     inicia_fase();
+
     setTimeout(function(){
       inicia_anim_obstaculo();
     },2850); 
@@ -52,7 +54,7 @@ function inicio() {
 function limpa_displays() {
     console.log("limpa_displays()");
     pontos = 0;
-    energia = 100;
+    energia = 10;
     atualiza_display_energia();
     atualiza_display_pontos();
 }
@@ -89,6 +91,10 @@ function seta_listeners() {
     var obstaculo_el = window.document.getElementById("obstaculo1");
     obstaculo_el.addEventListener("webkitAnimationEnd", final_anim_obstaculo);
     obstaculo_el.addEventListener("animationend", final_anim_obstaculo);
+    
+    var ken = window.document.getElementById("personagemKen");
+    ken.addEventListener("webkitAnimationEnd", inicia_anim_obstaculo, false);
+    ken.addEventListener("animationend", inicia_anim_obstaculo, false);
 }
 
 // função para iniciar uma nova fase
@@ -143,7 +149,6 @@ function calcula_tempos() {
 // função chamada para iniciar a animação do obstáculo
 function inicia_anim_obstaculo() {
     hadouken.play();
-    
     var obs_el = window.document.getElementById("obstaculo1");
     // associação da classe anima_obstaculo1 vai provocar o início da animação
     obs_el.className = "anima_obstaculo1";
@@ -178,7 +183,7 @@ function final_anim_obstaculo() {
     verifica_mudanca_de_fase();
 
     // seta um tempo randômico entre (0,1s e 1,1s) para reiniciar animação do obstáculo
-    window.setTimeout(inicia_anim_obstaculo, 100 + Math.floor(Math.random() * 1000));
+    animObstaculo = window.setTimeout(inicia_anim_obstaculo, 100 + Math.floor(Math.random() * 1000));
 }
 
 // função chamada quando for identificada colisão 
@@ -276,7 +281,7 @@ function verifica_salto() {
 
     // verifica se a distância entre o personagem e o obstáculo permite um salto OK!
     // (Obs: valores ajustados empiricamente!)
-    if (distancia > 320 && distancia <= 420) {
+    if (distancia > 105 && distancia <= 180) {
         console.log("salto OK!");
         return true;
     }
@@ -324,8 +329,10 @@ function finaliza_jogo() {
     console.log("finaliza_jogo()");
     atualiza_display_energia();
     atualizarLevelJogo('KO');
+    backgroundSong.pause();
     death.play();
     you.play();
+    clearTimeout(animObstaculo);
     setTimeout(function(){
       lose.play();
     },1000);
@@ -333,26 +340,55 @@ function finaliza_jogo() {
       console.log('Waiting...');
     },5000);
 
+    var el = window.document.getElementById('obstaculo1');
+    var elClone = el.cloneNode(true);
+
+    el.parentNode.replaceChild(elClone, el);
+
+    //var divEndGame = window.document.getElementById('end-game');
+    //divEndGame.style.display = 'block';
+    var count = 5;
+    var countTempo = 1000;
+    var intervalo = setInterval(function(){
+            if (count < 0) {
+                clearInterval(intervalo);
+                return;
+            };
+            //var smallCount = window.document.getElementById('count-small');
+            //smallCount.innerHTML = "CONTINUE? " + count;
+
+            //var bigCount = window.document.getElementById('count-big');
+            //bigCount.innerHTML = count;
+
+            count = count - 1;
+        },1000);
+        countTempo += 1000;
+
     // após o alert, inicia um novo jogo
-    inicio();
+    //inicio();
 }
 
-function atualizarLevelJogo(level){
+function atualizarLevelJogo(lvl){
     var el = window.document.getElementById('level');
-    el.innerHTML = level;
+    el.innerHTML = lvl;
     
+    if(typeof lvl != 'number' && lvl.indexOf('KO') != -1){
+        return;
+    }
     
     var elSpan = window.document.getElementById('round');
-    elSpan.innerHTML = 'Round '+level;
+    elSpan.innerHTML = 'Round '+lvl;
+    
+    if(lvl == 1){
+        setTimeout(function(){
+            var elSpan = window.document.getElementById('round');
+            elSpan.innerHTML = 'FIGHT!!!';
+            fight.play();
+        }, 2000);
+    }
     
     setTimeout(function(){
-      var elSpan = window.document.getElementById('round');
-      elSpan.innerHTML = 'FIGHT!!';
-      fight.play();
-    }, 2000);
-    
-    setTimeout(function(){
-      var elSpan = window.document.getElementById('round');
-      elSpan.innerHTML = '';
-    }, 2750);
+        var elSpan = window.document.getElementById('round');
+        elSpan.innerHTML = '';
+    }, 3000);
 }
