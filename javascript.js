@@ -56,7 +56,7 @@ function inicio() {
 function limpa_displays() {
     console.log("limpa_displays()");
     pontos = 0;
-    energia = 10;
+    energia = 100;
     atualiza_display_energia();
     atualiza_display_pontos();
 }
