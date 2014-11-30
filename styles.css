@@ -755,3 +755,8 @@
     left: 681px;
     top: 92px;
 }
+.end-game span.restart-game {
+    font-size: 38px;
+    left: 70px;
+    top: 50px;
+}

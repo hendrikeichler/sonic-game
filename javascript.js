@@ -333,41 +333,20 @@ function finaliza_jogo() {
     atualizarLevelJogo('KO');
     backgroundSong.pause();
     death.play();
-    you.play();
+    //you.play();
     clearTimeout(animObstaculo);
     setTimeout(function(){
-      lose.play();
+      you.play();
     },1000);
+        setTimeout(function(){
+      lose.play();
+    },2000);
     setTimeout(function(){
       console.log('Waiting...');
     },5000);
 
-    var el = window.document.getElementById('obstaculo1');
-    var elClone = el.cloneNode(true);
-
-    el.parentNode.replaceChild(elClone, el);
-
-    //var divEndGame = window.document.getElementById('end-game');
-    //divEndGame.style.display = 'block';
-    var count = 5;
-    var countTempo = 1000;
-    var intervalo = setInterval(function(){
-            if (count < 0) {
-                clearInterval(intervalo);
-                return;
-            };
-            //var smallCount = window.document.getElementById('count-small');
-            //smallCount.innerHTML = "CONTINUE? " + count;
-
-            //var bigCount = window.document.getElementById('count-big');
-            //bigCount.innerHTML = count;
-
-            count = count - 1;
-        },1000);
-        countTempo += 1000;
-
-    // após o alert, inicia um novo jogo
-    //inicio();
+    limparListenerObstaculo();
+    mostrarTelaGameOver();
 }
 
 function atualizarLevelJogo(lvl){
@@ -393,4 +372,60 @@ function atualizarLevelJogo(lvl){
         var elSpan = window.document.getElementById('round');
         elSpan.innerHTML = '';
     }, 3000);
+}
+
+function limparListenerObstaculo(){
+    var el = window.document.getElementById('obstaculo1');
+    var elClone = el.cloneNode(true);
+
+    el.parentNode.replaceChild(elClone, el);
+}
+
+function mostrarTelaGameOver(){
+    atualizarDisplayDivEndGame('block');
+    
+    var count = 5;
+    var intervalo = setInterval(function(){
+        if (count < 0) {
+            clearInterval(intervalo);
+            atualizarContagemGameOver("");
+            exibirBotaoReinicio();
+            return;
+        };
+        atualizarContagemGameOver(count);
+        count = count - 1;
+    },1000);
+}
+
+function atualizarContagemGameOver(texto){
+    var smallCount = window.document.getElementById('count-small');
+    var continueCount = "";
+    if(texto != ""){
+        continueCount = "CONTINUE? " + texto;
+    }
+    smallCount.innerHTML = continueCount;
+    
+    var bigCount = window.document.getElementById('count-big');     
+    bigCount.innerHTML = texto;
+}
+
+function atualizarDisplayDivEndGame(display){
+    var divEndGame = window.document.getElementById('end-game');
+    divEndGame.style.display = display;
+}
+
+function exibirBotaoReinicio(){
+    var spanRestartGame = window.document.createElement('span');
+    spanRestartGame.innerHTML = "CLICK HERE TO RESTART GAME";
+    spanRestartGame.setAttribute('onclick', 'restartGame();');
+    spanRestartGame.setAttribute('class', 'font-street-fighter restart-game');
+
+    var divEndGame = window.document.getElementById('end-game');
+    divEndGame.appendChild(spanRestartGame);
+}
+
+function restartGame(){
+    atualizarDisplayDivEndGame('none');
+    // FIXME Voltar os listener do obstaculo!
+    inicio();
 }
