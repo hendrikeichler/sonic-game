@@ -691,14 +691,12 @@
    color: yellow;
    text-shadow: 2px 2px 1px blue;
 }
-.player-number {
-}
+.player-number {}
 .player-points {
    float: right;
    margin-right: 50px;
 }
-.player-name {
-}
+.player-name {}
 .phase {
     background-color: black;
     border: 2pt solid white;
