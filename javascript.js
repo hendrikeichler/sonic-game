@@ -56,7 +56,7 @@ function inicio() {
 function limpa_displays() {
     console.log("limpa_displays()");
     pontos = 0;
-    energia = 100;
+    energia = 10;
     atualiza_display_energia();
     atualiza_display_pontos();
 }
@@ -375,10 +375,10 @@ function atualizarLevelJogo(lvl){
 }
 
 function limparListenerObstaculo(){
-    var el = window.document.getElementById('obstaculo1');
-    var elClone = el.cloneNode(true);
+    var obstaculo1 = window.document.getElementById('obstaculo1');
+    var obstaculo1Clone = obstaculo1.cloneNode(true);
 
-    el.parentNode.replaceChild(elClone, el);
+    obstaculo1.parentNode.replaceChild(obstaculo1Clone, obstaculo1);
 }
 
 function mostrarTelaGameOver(){
@@ -425,7 +425,5 @@ function exibirBotaoReinicio(){
 }
 
 function restartGame(){
-    atualizarDisplayDivEndGame('none');
-    // FIXME Voltar os listener do obstaculo!
-    inicio();
+    window.location.reload();
 }
