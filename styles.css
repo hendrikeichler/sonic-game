@@ -280,40 +280,34 @@
    0% {
         background-image: url("ken.png");
         background-position: -10px 1255px;
-        background-size: 770px auto;
     }
 
-    1% {        
-        background-position: -127px 1257px;   
-    }
-
-    50% {        
-        background-position: -127px 1257px;
-    }
-    51% {
-        background-position: -231px 1255px;
-        width: 110px;
-    }
-
-    75%{
-        background-position: -231px 1255px;
-        width: 110px;   
-    }
-    76%{
-        background-position: -127px 1257px;
-        width: 80px;
-    }
-    95%{
-        background-position: -127px 1257px;
-    }
-    96%{       
+    44% {        
+        background-image: url("ken.png");
         background-position: -10px 1255px;
-        background-size: 770px auto;
-    }
+    }    
     
+    45% {        
+        background-image: url("ken.png");  
+        background-position: -127px 1257px;
+    }
+
+    86% {
+        background-image: url("ken.png");               
+        background-position: -127px 1257px;
+    }
+
+    87% {
+        background-image: url("ken.png");
+        background-position: -231px 1255px;
+        width: 100px;
+        left: 1020px;
+    }
     100% {
-        background-position: -10px 1255px;
-        background-size: 770px auto;
+        background-image: url("ken.png");
+        background-position: -231px 1255px;
+        width: 100px;
+        left: 1020px;
     }
 }
 
@@ -323,58 +317,32 @@
         background-position: -10px 1255px;
     }
 
-    22% {        
+    44% {        
         background-image: url("ken.png");
         background-position: -10px 1255px;
     }    
     
-    23% {        
+    45% {        
         background-image: url("ken.png");  
         background-position: -127px 1257px;
     }
 
-    45% {
+    86% {
         background-image: url("ken.png");               
         background-position: -127px 1257px;
     }
 
-    46% {
+    87% {
         background-image: url("ken.png");
         background-position: -231px 1255px;
         width: 100px;
         left: 1020px;
     }
-    68% {
-        background-image: url("ken.png");
-        background-position: -231px 1255px;
-        width: 100px;
-        left: 1020px;
-    }
-
-    69% {
-        background-image: url("ken.png");
-        background-position: -127px 1257px;
-        width: 80px;
-        left: 1043px;
-    }
-    91% {
-        background-image: url("ken.png");
-        background-position: -127px 1257px;
-        width: 80px;
-        left: 1043px;
-    }
-    92% {
-        background-image: url("ken.png");
-        background-position: -10px 1255px;
-    }
-    96%{
-       background-image: url("ken.png");
-       background-position: -10px 1255px;
-    }
-    
     100% {
         background-image: url("ken.png");
-        background-position: -10px 1255px;
+        background-position: -231px 1255px;
+        width: 100px;
+        left: 1020px;
     }
 }
 
@@ -382,48 +350,34 @@
     0% {
         background-image: url("ken.png");
         background-position: -10px 1255px;
-        background-size: 770px auto;
     }
 
-    1% {        
-        background-image: url(ryu.png);
-        background-position: -127px 1257px;   
-    }
-
-    50% {        
-        background-image: url(ryu.png);
-        background-position: -127px 1257px;
-    }
-    51% {
-        background-image: url(ryu.png);
-        background-position: -231px 1255px;
-        width: 110px;
-    }
-
-    75%{
-        background-image: url(ryu.png);
-        background-position: -231px 1255px;
-        width: 110px;   
-    }
-    76%{
-        background-image: url(ryu.png);
-        background-position: -127px 1257px;
-        width: 80px;
-    }
-    95%{
-        background-image: url(ryu.png);
-        background-position: -127px 1257px;
-    }
-    96%{
+    44% {        
         background-image: url("ken.png");
         background-position: -10px 1255px;
-        background-size: 770px auto;
-    }
+    }    
     
+    45% {        
+        background-image: url("ken.png");  
+        background-position: -127px 1257px;
+    }
+
+    86% {
+        background-image: url("ken.png");               
+        background-position: -127px 1257px;
+    }
+
+    87% {
+        background-image: url("ken.png");
+        background-position: -231px 1255px;
+        width: 100px;
+        left: 1020px;
+    }
     100% {
         background-image: url("ken.png");
-        background-position: -10px 1255px;
-        background-size: 770px auto;
+        background-position: -231px 1255px;
+        width: 100px;
+        left: 1020px;
     }
 }
 

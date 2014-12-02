@@ -9,6 +9,7 @@ var conta_obstaculos; // número de obstáculos que já passaram em uma fase
 var vel_fundo; // velocidade do fundo (em pixels/s)
 var vel_1o_plano; // velocidade do 1o plano (em pixels/s)
 var animObstaculo;
+var ken, contador = 0;
 var hadouken = new Audio('sounds/hadouken.mp3');
 var lifeLost = new Audio('sounds/lifelost.wav');
 var changeLevel = new Audio('sounds/changelevel.mp3');
@@ -29,7 +30,7 @@ var WIDTH_JANELA = 1064; // número de pixels da largura da janela
 
 // função chamada no início (ou reinício) do jogo
 function inicio() {
-    console.log("inicio()");
+    //console.log("inicio()");
 
     //inicialização de variáveis
     start.play(); 
@@ -40,21 +41,21 @@ function inicio() {
     limpa_displays();
     setTimeout(function(){
       backgroundSong.play();
-      var ken = window.document.getElementById("personagemKen");
+      ken = window.document.getElementById("personagemKen");
       ken.className = 'hadouken_ken';
     },2500); 
     seta_listeners();
     inicia_fase();
 
-    setTimeout(function(){
-      inicia_anim_obstaculo();
-    },2850); 
+    //setTimeout(function(){
+    //  IniciaAnimacaoObstaculo();
+    //},2850); 
 
 }
 
 // função para limpeza dos displays de energia e pontos
 function limpa_displays() {
-    console.log("limpa_displays()");
+    //console.log("limpa_displays()");
     pontos = 0;
     energia = 10;
     atualiza_display_energia();
@@ -63,7 +64,7 @@ function limpa_displays() {
 
 // função para atualizar displays de energia
 function atualiza_display_energia() {
-    console.log("atualiza_display_energia()");
+    //console.log("atualiza_display_energia()");
     var el = window.document.getElementById("lifeBarStatus");
     if (!el)
         return;
@@ -72,7 +73,7 @@ function atualiza_display_energia() {
 
 // função para atualizar displays de pontos
 function atualiza_display_pontos() {
-    console.log("atualiza_display_pontos()");
+    //console.log("atualiza_display_pontos()");
     var el = window.document.getElementById("points");
     if (!el)
         return;
@@ -81,7 +82,7 @@ function atualiza_display_pontos() {
 
 // função para associar funções de tratamento para os momentos de término de animação
 function seta_listeners() {
-    console.log("seta_listeners");
+    //console.log("seta_listeners");
 
     // seta função fim_de_salto para ser chamada quando acabar o salto do personagem
     var pers_el = window.document.getElementById("personagem");
@@ -95,8 +96,12 @@ function seta_listeners() {
     obstaculo_el.addEventListener("animationend", final_anim_obstaculo);
     
     var ken = window.document.getElementById("personagemKen");
-    ken.addEventListener("webkitAnimationEnd", inicia_anim_obstaculo, false);
-    ken.addEventListener("animationend", inicia_anim_obstaculo, false);
+    debugger;
+    ken.addEventListener("animationiteration", IniciaAnimacaoObstaculo, false);
+    ken.addEventListener("webkitAnimationIteration", IniciaAnimacaoObstaculo, false);
+    ken.addEventListener("mozAnimationIteration", IniciaAnimacaoObstaculo, false);
+    ken.addEventListener("MSAnimationIteration", IniciaAnimacaoObstaculo, false);
+    ken.addEventListener("oanimationiteration", IniciaAnimacaoObstaculo, false);
 }
 
 // função para iniciar uma nova fase
@@ -149,7 +154,8 @@ function calcula_tempos() {
 }
 
 // função chamada para iniciar a animação do obstáculo
-function inicia_anim_obstaculo() {
+function IniciaAnimacaoObstaculo(e) {
+    console.log('inciando animacao obstaculo' + contador++);
     hadouken.play();
     var obs_el = window.document.getElementById("obstaculo1");
     // associação da classe anima_obstaculo1 vai provocar o início da animação
@@ -164,7 +170,7 @@ function inicia_anim_obstaculo() {
 function final_anim_obstaculo() {
     // incremento o número de obstáculos que já passaram
     conta_obstaculos++;
-    console.log("final_anim_obstaculo() - " + conta_obstaculos);
+    //console.log("final_anim_obstaculo() - " + conta_obstaculos);
 
     // se o personagem não teve um salto OK, então houve colisão!
     if (!saltou)
@@ -185,7 +191,8 @@ function final_anim_obstaculo() {
     verifica_mudanca_de_fase();
 
     // seta um tempo randômico entre (0,1s e 1,1s) para reiniciar animação do obstáculo
-    animObstaculo = window.setTimeout(inicia_anim_obstaculo, 100 + Math.floor(Math.random() * 1000));
+    
+    //animObstaculo = window.setTimeout(IniciaAnimacaoObstaculo, 100 + Math.floor(Math.random() * 1000));
 }
 
 // função chamada quando for identificada colisão 
@@ -198,7 +205,7 @@ function colisao() {
 
 // função que verifica se houve mudança de fase (critério => número de obstáculos que já passaram nesta fase)
 function verifica_mudanca_de_fase() {
-    console.log("verifica_mudanca_de_fase() => " + (conta_obstaculos) + " >= " + nobstaculos);
+    //console.log("verifica_mudanca_de_fase() => " + (conta_obstaculos) + " >= " + nobstaculos);
     if (conta_obstaculos >= nobstaculos)
         muda_fase();
 }
@@ -226,7 +233,7 @@ function ganha_energia(incremento) {
 }
 
 function perde_energia(decremento) {
-    console.log("perde_energia(" + decremento + ")");
+    //console.log("perde_energia(" + decremento + ")");
     energia -= decremento;
 
     // garante que energia seja menor que 0
@@ -240,7 +247,7 @@ function perde_energia(decremento) {
 
 // função chamada pelo acionamento de alguma tecla
 function saltar() {
-    console.log("saltar()");
+    //console.log("saltar()");
 
     // se o personagem já estiver saltando, interrompe nova execução
     if (saltando)
@@ -263,12 +270,12 @@ function saltar() {
     pers_el.style.WebkitAnimationDuration = tempo_animacao_personagem + "ms";
     pers_el.style.mozAnimationDuration = tempo_animacao_personagem + "ms";
     pers_el.style.animationDuration = tempo_animacao_personagem + "ms";
-    console.log("Tempo personagem:" + tempo_animacao_personagem);
+    //console.log("Tempo personagem:" + tempo_animacao_personagem);
 }
 
 // função chamada para verificar se o salto foi bem sucedido
 function verifica_salto() {
-    console.log("verifica_salto()");
+    //console.log("verifica_salto()");
     // se não iniciou animação não tem validade
     if (ts_inicio_anim_obs == 0)
         return false;
@@ -279,22 +286,22 @@ function verifica_salto() {
 
     // calcula a distância do personagem até o obstáculo
     var distancia = WIDTH_JANELA - Math.round(intervalo * vel_1o_plano / 1000);
-    console.log("transcorridos: " + intervalo + " ms! => distancia: " + distancia + "pixels");
+    //console.log("transcorridos: " + intervalo + " ms! => distancia: " + distancia + "pixels");
 
     // verifica se a distância entre o personagem e o obstáculo permite um salto OK!
     // (Obs: valores ajustados empiricamente!)
     if (distancia > 105 && distancia <= 180) {
-        console.log("salto OK!");
+        //console.log("salto OK!");
         return true;
     }
     // está em uma distância em que haverá colisão
     else if (distancia > 300 && distancia <= 450) {
-        console.log("VAI BATER!!!");
+        //console.log("VAI BATER!!!");
         return false;
     }
     // se a distância muito grande é porque o salto foi feito antes da hora
     else if (distancia > 450) {
-        console.log("salto ANTES da hora!");
+        //console.log("salto ANTES da hora!");
         return false;
     }
     return false;
@@ -302,7 +309,7 @@ function verifica_salto() {
 
 // função chamada quando ocorrer o fim da animação do personagem
 function fim_do_salto() {
-    console.log("fim_do_salto()");
+    //console.log("fim_do_salto()");
 
     // se o personagem fez um salto bem sucedido, ganha pontos
     if (salto_ok) {
@@ -322,19 +329,24 @@ function fim_do_salto() {
 
 // função para acrescentar pontos
 function acrescenta_pontos(incremento) {
-    console.log("acrescenta_pontos(" + incremento + ")");
+    //console.log("acrescenta_pontos(" + incremento + ")");
     pontos += incremento;
 }
 
 // função para finalizar jogo
 function finaliza_jogo() {
-    console.log("finaliza_jogo()");
+    //console.log("finaliza_jogo()");
+    ken.removeEventListener('animationiteration',IniciaAnimacaoObstaculo);
+    ken.removeEventListener('webkitAnimationIteration',IniciaAnimacaoObstaculo);
+    ken.removeEventListener('mozAnimationIteration',IniciaAnimacaoObstaculo);
+    ken.removeEventListener('oanimationiteration',IniciaAnimacaoObstaculo);
+    ken.removeEventListener('MSAnimationIteration',IniciaAnimacaoObstaculo);
     atualiza_display_energia();
     atualizarLevelJogo('KO');
     backgroundSong.pause();
     death.play();
     //you.play();
-    clearTimeout(animObstaculo);
+    //clearTimeout(animObstaculo);
     setTimeout(function(){
       you.play();
     },1000);
@@ -342,7 +354,7 @@ function finaliza_jogo() {
       lose.play();
     },2000);
     setTimeout(function(){
-      console.log('Waiting...');
+      //console.log('Waiting...');
     },5000);
 
     limparListenerObstaculo();
