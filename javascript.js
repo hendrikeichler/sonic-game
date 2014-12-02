@@ -57,7 +57,7 @@ function inicio() {
 function limpa_displays() {
     //console.log("limpa_displays()");
     pontos = 0;
-    energia = 10;
+    energia = 100;
     atualiza_display_energia();
     atualiza_display_pontos();
 }
@@ -96,7 +96,6 @@ function seta_listeners() {
     obstaculo_el.addEventListener("animationend", final_anim_obstaculo);
     
     var ken = window.document.getElementById("personagemKen");
-    debugger;
     ken.addEventListener("animationiteration", IniciaAnimacaoObstaculo, false);
     ken.addEventListener("webkitAnimationIteration", IniciaAnimacaoObstaculo, false);
     ken.addEventListener("mozAnimationIteration", IniciaAnimacaoObstaculo, false);
@@ -430,7 +429,7 @@ function exibirBotaoReinicio(){
     var spanRestartGame = window.document.createElement('span');
     spanRestartGame.innerHTML = "CLICK HERE TO RESTART GAME";
     spanRestartGame.setAttribute('onclick', 'restartGame();');
-    spanRestartGame.setAttribute('class', 'font-street-fighter restart-game');
+    spanRestartGame.setAttribute('class', 'font-street-fighter restart-game blink');
 
     var divEndGame = window.document.getElementById('end-game');
     divEndGame.appendChild(spanRestartGame);
